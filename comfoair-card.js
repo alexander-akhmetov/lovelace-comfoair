@@ -48,39 +48,35 @@ class ComfoAirCard extends LitElement {
     `;
   }
 
-  getFanTmpl(){
-    if(this.hass.states['sensor.comfoairq_supply_fan_duty'].state == 'on'){
+  getFanTmpl() {
+    if (this.hass.states['sensor.comfoairq_supply_fan_duty'].state == 'on') {
       return html`<ha-icon icon="mdi:fan"></ha-icon>`;
-    }else{
+    } else {
       return html`<ha-icon class="inactive" icon="mdi:fan"></ha-icon>`;
     }
   }
 
-  getAirFilterTmpl(){
-    if(this.hass.states['sensor.comfoairq_days_to_replace_filter'].state != 'on'){
+  getAirFilterTmpl() {
+    if (this.hass.states['sensor.comfoairq_days_to_replace_filter'].state != 'on') {
       return html`<ha-icon class="inactive" icon="mdi:air-filter"></ha-icon>`;
-    }else{
+    } else {
       return html`<ha-icon class="warning" icon="mdi:air-filter"></ha-icon>`;
     }
   }
 
-  getBypassTmpl(){
-    if(this.hass.states['sensor.comfoairq_bypass_state'].state == 'on'){
-      return html`<ha-icon icon="mdi:electric-switch"></ha-icon>`;
-    }else{
-      return html`<ha-icon class="inactive" icon="mdi:electric-switch"></ha-icon>`;
-    }
+  getBypassTmpl() {
+    return html`<div><ha-icon icon="mdi:electric-switch"></ha-icon> ${this.hass.states['sensor.comfoairq_bypass_state'].state}%</div> `;
   }
 
-  getPreHeatTmpl(){
-    if(this.hass.states['sensor.comfoairq_preheater_power_usage'].state == 'on'){
+  getPreHeatTmpl() {
+    if (this.hass.states['sensor.comfoairq_preheater_power_usage'].state == 'on') {
       return html`<ha-icon icon="mdi:radiator"></ha-icon>`;
-    }else{
+    } else {
       return html`<ha-icon class="inactive" icon="mdi:radiator"></ha-icon>`;
     }
   }
 
-  getSummerModeTmpl(){
+  getSummerModeTmpl() {
     // if(this.hass.states['binary_sensor.summer_mode'].state == 'off'){
     //   return html`<ha-icon icon="mdi:snowflake"></ha-icon>`;
     // }else{
