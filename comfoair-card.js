@@ -26,13 +26,13 @@ class ComfoAirCard extends LitElement {
                   <div class="fan-state"><ha-icon icon="mdi:speedometer"></ha-icon> ${Math.trunc(this.hass.states['sensor.comfoairq_exhaust_fan_speed'].state)} rpm</div>
               </div>
               <div class="flex-col-main">
-                  <div><ha-icon class="spin" icon="mdi:${({'auto': 'fan', 'off': 'fan-off', low: 'fan-speed-1', medium: 'fan-speed-2', high: 'fan-speed-3'}[this.hass.states['fan.comfoairq'].attributes.fan_mode])}"></ha-icon></div>
+                  <div class="fan-state"><ha-icon icon="mdi:fan"></ha-icon> ${Math.trunc(this.hass.states['fan.comfoairq'].attributes.percentage)}%</div>
               </div>
               <div class="flex-col-in">
                   <div>${this.hass.states['sensor.comfoairq_inside_temperature'].state}°C</div>
-                  <div class="fan-state"><ha-icon icon="mdi:fan"></ha-icon> ${Math.trunc(this.hass.states['sensor.comfoairq_inside_humidity'].state)}%</div>
+                  <div class="fan-state"><ha-icon icon="mdi:water"></ha-icon> ${Math.trunc(this.hass.states['sensor.comfoairq_inside_humidity'].state)}%</div>
                   <div>${this.hass.states['sensor.comfoairq_supply_temperature'].state}°C</div>
-                  <div class="fan-state"><ha-icon icon="mdi:fan"></ha-icon> ${Math.trunc(this.hass.states['sensor.comfoairq_supply_humidity'].state)}%</div>
+                  <div class="fan-state"><ha-icon icon="mdi:water"></ha-icon> ${Math.trunc(this.hass.states['sensor.comfoairq_supply_humidity'].state)}%</div>
               </div>
           </div>
       </div>
